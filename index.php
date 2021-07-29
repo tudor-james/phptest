@@ -1,54 +1,37 @@
 <?php
-/*
- * Copyright 2020 Google LLC.
- *
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *
- *     http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- */
 
-declare(strict_types=1);
+require __DIR__ . '/vendor/autoload.php';
+require __DIR__ . '/env.php';
 
-use GuzzleHttp\Psr7;
+use Google\Cloud\Storage\StorageClient;
 
-include __DIR__ . '/vendor/autoload.php';
+$app = array();
+$app['mysql_user'] = $mysql_user;
+$app['mysql_password'] = $mysql_password;
+$app['mysql_dbname'] = "test";
+$app['project_id'] = getenv('GCLOUD_PROJECT');
 
-$app = include __DIR__ . '/src/app.php';
+$servername = null;
+$username = $app['mysql_user'];
+$password = $app['mysql_password'];
+$dbname = $app['mysql_dbname'];
+$dbport = null;
 
-$app->get('/', function ($request, $response) {
-    $this->get('votes')->createTableIfNotExists();
+// Create connection
+$conn = new mysqli($servername, $username, $password, $dbname, 
+	$dbport, "/cloudsql/phpinternaltest:europe-west2:phpinternaltest");
 
-    return $this->get('view')->render($response, 'template.twig', [
-        'votes' => $this->get('votes')->listVotes(),
-        'tabCount' => $this->get('votes')->getCountByValue('TABS'),
-        'spaceCount' => $this->get('votes')->getCountByValue('SPACES'),
-    ]);
-});
+// Check connection
+if ($conn->connect_error) {
+    die("Connection failed: " . $conn->connect_error);
+} 
+echo "\nConnected successfully\n";
 
-$app->post('/', function ($request, $response) {
-    $this->get('votes')->createTableIfNotExists();
 
-    $message = 'Invalid vote. Choose Between TABS and SPACES';
+echo "\ntesting gcloud php\n";
 
-    $formData = $request->getParsedBody() + [
-        'voteValue' => ''
-    ];
+?>
 
-    if (in_array($formData['voteValue'], ['SPACES', 'TABS'])) {
-        $message = $this->get('votes')->insertVote($formData['voteValue'])
-            ? 'Vote cast for ' . $formData['voteValue']
-            : 'An error occurred';
-    }
 
-    return $response->withBody(Psr7\stream_for($message));
-});
 
-$app->run();
+
