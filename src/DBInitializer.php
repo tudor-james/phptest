@@ -42,10 +42,10 @@ class DBInitializer
     ): PDO {
         try {
             # [START cloud_sql_mysql_pdo_create_tcp]
-            // $username = 'your_db_user';
-            // $password = 'yoursupersecretpassword';
-            // $dbName = 'your_db_name';
-            // $dbHost = "127.0.0.1";
+            $username = 'phptest';
+            $password = 'cerebrus';
+            $dbName = 'test';
+            $dbHost = "172.18.0.3";
 
             // Connect using TCP
             $dsn = sprintf('mysql:dbname=%s;host=%s', $dbName, $dbHost);
@@ -91,7 +91,7 @@ class DBInitializer
      *  @param $socketDir string Full path to unix socket
      *  @param $conn_config array driver-specific options for PDO
      */
-    public static function initUnixDatabaseConnection(
+    /**public static function initUnixDatabaseConnection(
         string $username,
         string $password,
         string $dbName,
@@ -118,6 +118,7 @@ class DBInitializer
             // Connect to the database.
             $conn = new PDO($dsn, $username, $password, $conn_config);
             # [END cloud_sql_mysql_pdo_create_socket]
+            
         } catch (TypeError $e) {
             throw new RuntimeException(
                 sprintf(
