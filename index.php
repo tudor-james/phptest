@@ -3,17 +3,7 @@
 require __DIR__ . '/vendor/autoload.php';
 
 try {
-    $username = 'phptest';
-    $password = 'cerebus';
-    $dbName = 'test';
-    $connectionName = 'phpinternaltest:europe-west2:phpinternaltest';
-    $socketDir = '/cloudsql';
-
-    // Connect using UNIX sockets
-    $dsn = 'mysql:host=172.18.0.3:3306;dbname=test';
-    // Connect to the database.
-    $conn = new PDO($dsn, $username, $password);
-
+    $db = new pdo('mysql:unix_socket=/cloudsql/phpinternaltest:europe-west2:phpinternaltest;dbname=gtest', 'phptest', 'cerebus');
 } catch (TypeError $e) {
     throw new RuntimeException(
         sprintf(
