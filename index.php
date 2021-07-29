@@ -6,8 +6,8 @@ try {
     $username = 'phptest';
     $password = 'cerebus';
     $dbName = 'test';
-    $connectionName = getenv("CLOUD_SQL_CONNECTION_NAME");
-    $socketDir = getenv('DB_SOCKET_DIR') ?: '/cloudsql';
+    $connectionName = 'phpinternaltest:europe-west2:phpinternaltest';
+    $socketDir = '/cloudsql';
 
 // Connect using UNIX sockets
     $dsn = sprintf(
@@ -18,7 +18,7 @@ try {
     );
 
 // Connect to the database.
-$conn = new PDO($dsn, $username, $password, $conn_config);
+$conn = new PDO($dsn, $username, $password);
 
 } catch (TypeError $e) {
     throw new RuntimeException(
