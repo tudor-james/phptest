@@ -3,7 +3,7 @@
 require __DIR__ . '/vendor/autoload.php';
 
 try {
-    $db = new pdo('mysql:unix_socket=/cloudsql/phpinternaltest:europe-west2:phpinternaltest;dbname=gtest', 'phptest', 'cerebus');
+    $db = new pdo('mysql:unix_socket=/cloudsql/phpinternaltest:europe-west2:phpinternaltest;dbname=test', 'phptest', 'cerebus');
 } catch (TypeError $e) {
     throw new RuntimeException(
         sprintf(
