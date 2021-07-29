@@ -3,6 +3,6 @@
       "google/cloud-tools": "^0.6"
     },
     "require": {
-      "google/cloud": "^0.72.0",
+      "google/cloud": "^0.72.0"
     }
   }
