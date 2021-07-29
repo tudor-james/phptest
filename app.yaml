@@ -17,10 +17,11 @@ runtime: php74
 # Remember - storing secrets in plaintext is potentially unsafe. Consider using
 # something like https://cloud.google.com/secret-manager/ to help keep secrets secret.
 env_variables:
-  CLOUD_SQL_CONNECTION_NAME: <MY-PROJECT>:<INSTANCE-REGION>:<MY-DATABASE>
-  DB_USER: my-db-user
-  DB_PASS: my-db-pass
-  DB_NAME: my-db
+  #CLOUD_SQL_CONNECTION_NAME: <MY-PROJECT>:<INSTANCE-REGION>:<MY-DATABASE>
+  DB_HOST: 172.18.0.3
+  DB_USER: phoptest
+  DB_PASS: cerebrus
+  DB_NAME: test
 
 # Defaults to "serve index.php" and "serve public/index.php". Can be used to
 # serve a custom PHP front controller (e.g. "serve backend/index.php") or to
