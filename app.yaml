@@ -1,11 +1,6 @@
 runtime: php74
-env: standard
-runtime_config:
-    document_root: .
 env_variables:
-    APP_LOG: errorlog
-    MYSQL_USER: "phptest"
-    MYSQL_PASSWORD: "cerebus"
-    MYSQL_DSN: "mysql:dbname=test;unix_socket=/cloudsql/phpinternaltest:europe-west2:phpinternaltest"
-beta_settings:
-    cloud_sql_instances: "phpinternaltest:europe-west2:phpinternaltest"
+  CLOUD_SQL_CONNECTION_NAME: phpinternaltest:europe-west2:phpinternaltest
+  DB_USER: phptest
+  DB_PASS: cerebus
+  DB_NAME: test
