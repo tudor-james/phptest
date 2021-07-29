@@ -20,7 +20,7 @@ env_variables:
   #CLOUD_SQL_CONNECTION_NAME: <MY-PROJECT>:<INSTANCE-REGION>:<MY-DATABASE>
   DB_HOST: 172.18.0.3
   DB_USER: phoptest
-  DB_PASS: cerebrus
+  DB_PASS: cerebus
   DB_NAME: test
 
 # Defaults to "serve index.php" and "serve public/index.php". Can be used to

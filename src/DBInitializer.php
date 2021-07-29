@@ -43,7 +43,7 @@ class DBInitializer
         try {
             # [START cloud_sql_mysql_pdo_create_tcp]
             $username = 'phptest';
-            $password = 'cerebrus';
+            $password = 'cerebus';
             $dbName = 'test';
             $dbHost = "172.18.0.3";
 
