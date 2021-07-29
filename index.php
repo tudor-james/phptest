@@ -5,7 +5,7 @@ require __DIR__ . '/vendor/autoload.php';
 try {
     $username = 'phptest';
     $password = 'cerebus';
-    $dbName = 'your_db_name';
+    $dbName = 'test';
     $connectionName = getenv("CLOUD_SQL_CONNECTION_NAME");
     $socketDir = getenv('DB_SOCKET_DIR') ?: '/cloudsql';
 
