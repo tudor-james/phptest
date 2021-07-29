@@ -9,16 +9,10 @@ try {
     $connectionName = 'phpinternaltest:europe-west2:phpinternaltest';
     $socketDir = '/cloudsql';
 
-// Connect using UNIX sockets
-    $dsn = sprintf(
-        'mysql:dbname=%s;unix_socket=%s/%s',
-        $dbName,
-        $socketDir,
-        $connectionName
-    );
-
-// Connect to the database.
-$conn = new PDO($dsn, $username, $password);
+    // Connect using UNIX sockets
+    $dsn = "mysql:dbname=test;unix_socket=/cloudsql, phpinternaltest:europe-west2:phpinternaltest, ";
+    // Connect to the database.
+    $conn = new PDO($dsn, $username, $password);
 
 } catch (TypeError $e) {
     throw new RuntimeException(
