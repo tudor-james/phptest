@@ -10,7 +10,7 @@ try {
     $socketDir = '/cloudsql';
 
     // Connect using UNIX sockets
-    $dsn = "mysql:host=172.18.0.3:3306;dbname=test";
+    $dsn = 'mysql:host=172.18.0.3:3306;dbname=test';
     // Connect to the database.
     $conn = new PDO($dsn, $username, $password);
 
