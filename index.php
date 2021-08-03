@@ -3,7 +3,17 @@
 require __DIR__ . '/vendor/autoload.php';
 
 try {
-    $db = new pdo('mysql:host=172.18.0.3:3306;dbname=test', 'root', 'cerebus');
+    $username = 'phptest';
+    $password = 'cerebus';
+    $dbName = 'test';
+    $dbHost = "172.18.0.3";
+
+    // Connect using TCP
+    $dsn = sprintf('mysql:dbname=%s;host=%s', $dbName, $dbHost);
+
+    // Connect to the database
+    $conn = new PDO($dsn, $username, $password);
+    
 } catch (TypeError $e) {
     throw new RuntimeException(
         sprintf(
