@@ -9,7 +9,7 @@ try {
     $dbHost = "172.18.0.3";
 
     // Connect using TCP
-    $dsn = sprintf('mysql:dbname=%s;host=%s', $dbName, $dbHost);
+    $dsn = "mysql:host=$dbHost;dbname=$dbName";
 
     // Connect to the database
     $conn = new PDO($dsn, $username, $password);
