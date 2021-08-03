@@ -7,4 +7,4 @@ env_variables:
 vpc_access_connector:
   name: projects/phpinternaltest/locations/europe-west2/connectors/phpapptest
 beta_settings:
-  cloud_sql_instances: phpinternaltest:europe-west2:phpinternaltest
+ cloud_sql_instances: con-ae-to-sql:europe-west2:database-ipinternal=tcp:3306
