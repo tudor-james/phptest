@@ -1,11 +1,6 @@
 runtime: php74
-env_variables:
-  CLOUD_SQL_CONNECTION_NAME: phpinternaltest:europe-west2:phpinternaltest
-  DB_USER: phptest
-  DB_PASS: cerebus
-  DB_NAME: test
 vpc_access_connector:
   name: projects/phpinternaltest/locations/europe-west2/connectors/phpapptest
   egress_setting: all-traffic
 beta_settings:
- cloud_sql_instances: con-ae-to-sql:europe-west2:database-ipinternal=tcp:3306
+ cloud_sql_instances: phpinternaltest:europe-west2:phpinternaltest
