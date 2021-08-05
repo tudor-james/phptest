@@ -1,6 +1,3 @@
 runtime: php74
 vpc_access_connector:
-  name: projects/phpinternaltest/locations/europe-west2/connectors/phpapptest
-  egress_setting: all-traffic
-beta_settings:
- cloud_sql_instances: phpinternaltest:europe-west2:phpinternaltest
+  name: projects/phpinternaltest/locations/europe-west2/connectors/phptest2
