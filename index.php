@@ -6,7 +6,7 @@ try {
     $username = 'phptest';
     $password = 'cerebus';
     $dbName = 'test';
-    $dbHost = "172.16.0.4";
+    $dbHost = "172.20.0.5";
 
     // Connect using TCP
     $dsn = "mysql:host=$dbHost;dbname=$dbName";
